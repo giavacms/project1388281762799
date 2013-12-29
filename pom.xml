@@ -1,0 +1,230 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>giavacms</artifactId>
+	<groupId>org.giavacms</groupId>
+	<version>2.0.3</version>
+	<packaging>war</packaging>
+	<build>
+		<finalName>ROOT</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin><!-- don't pack the war -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<configuration>
+						<outputDirectory>deployments</outputDirectory>
+						<warName>ROOT</warName>
+					</configuration>
+					<executions>
+						<execution>
+							<id>default-war</id>
+							<phase>none</phase>
+						</execution>
+						<execution>
+							<id>war-exploded</id>
+							<phase>package</phase>
+							<configuration>
+								<webappDirectory>deployments/ROOT.war</webappDirectory>
+							</configuration>
+							<goals>
+								<goal>exploded</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<dependencies>
+
+		<!-- Giava Commons -->
+		<dependency>
+			<groupId>org.giavacms.common</groupId>
+			<artifactId>giavacms-common-base</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms.common</groupId>
+			<artifactId>giavacms-common-jpa</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms.common</groupId>
+			<artifactId>giavacms-common-rewrite</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms.common</groupId>
+			<artifactId>giavacms-common-web</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Giava CMS -->
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>base</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>cache</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>contactus</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>banner</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>faq</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>richcontent</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>compatibility</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>company</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>catalogue</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>paypalweb</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>errorpages</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>openshift-jboss7</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.giavacms</groupId>
+			<artifactId>scenario</artifactId>
+			<version>2.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<!-- Required in WEB-INF/lib if not provided by jboss modules -->
+
+		<!-- Prime faces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>4.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Apache commons -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+	<profiles>
+		<profile>
+			<!-- When built in OpenShift the 'openshift' profile will be used when 
+				invoking mvn. -->
+			<!-- Use this profile for any OpenShift specific customization your app 
+				will need. -->
+			<!-- By default that is to put the resulting archive into the 'deployments' 
+				folder. -->
+			<!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
+			<id>openshift</id>
+			<build>
+				<finalName>ROOT</finalName>
+				<plugins>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<outputDirectory>deployments</outputDirectory>
+							<warName>ROOT</warName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>
